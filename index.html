@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/draft.css">
+	<title>Scooby To-Dooby</title>
+</head>
+
+<body>
+	<main class="fullscreen-column">
+		<header class="top-bar">
+			<h1>Scooby To-Dooby</h1>
+		</header>
+		<form id="addTaskForm" action="addTask()">
+			<h2>List Name</h2>
+			<p>last modified: </p>
+			<input type="text" name="newTask" id="newTask"/>
+			<button id="addTaskBtn">+</button>
+		</form>
+		<ol id="taskList">
+		</ol>
+	</main>
+
+	<!-- bottom scripts -->
+	<script 
+	src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+	<script src="js/script.js"></script>
+</body>
+
+</html>

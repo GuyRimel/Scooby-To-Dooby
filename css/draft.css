@@ -1,0 +1,35 @@
+:root * {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  --color-Primary: #BDCCBD;
+  --color-PL20: #F0FFF0;
+  --color-PD20: #8a998a;
+}
+
+body {
+  background-color: var(--color-PL20);
+}
+
+.fullscreen-column {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+}
+
+.top-bar {
+  background-color: var(--color-PD20);
+  color: #fff;
+  width: 100vw;
+  height: 4em;
+  padding: 0.75em;
+  text-align: center;
+  top: 0;
+  margin-bottom: 4em;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
