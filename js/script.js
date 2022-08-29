@@ -49,3 +49,13 @@ function newItem(){
     }
   }
 }
+
+  // rename list feature
+  function renameList(){
+    let listTitle = prompt('Enter new list title:').trim();
+    if(listTitle){
+      $('h1').text(listTitle);
+    }
+  }
+
+  $('h1').on('click', renameList);
