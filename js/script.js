@@ -42,11 +42,14 @@ function newItem(){
     let crossedOutTasks = $('.strike').length;
     let activeTasks = totalTasks - deletedTasks - crossedOutTasks;
     let percentage = (1 - (activeTasks / (totalTasks - deletedTasks))) * 100;
-    if(!percentage){
-      $('#percentComplete').text('0');
-    }else{
-      $('#percentComplete').text(Math.round(percentage));
+
+    if(!percentage || percentage < 0){
+      percentage = 0;
+    }if(percentage > 100){
+      percentage = 100;
     }
+    
+    $('#percentComplete').text(Math.round(percentage));
   }
 }
 
