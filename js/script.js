@@ -63,7 +63,6 @@ function renameList(){
   if(listTitle){
     $('h1').text(listTitle);
   }
-  update();
 }
 
 $('h1').on('click', renameList);
