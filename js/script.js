@@ -11,12 +11,12 @@ function newItem(){
       let list = $('#list');
       list.append(li);
     }
-    updatePercentComplete();
+    update();
 
   //2. Crossing out an item from the list of items:
     function crossOut() {
       li.toggleClass("strike");
-      updatePercentComplete();
+      update();
     }
 
     li.on("dblclick",crossOut);
@@ -31,13 +31,13 @@ function newItem(){
     function deleteListItem(){
       li.addClass("delete");
       li.removeClass("strike");
-      updatePercentComplete();
+      update();
     }
   // 4. Reordering the items: 
     $('#list').sortable();
 
   // percent complete tracking feature
-  function updatePercentComplete() {
+  function update() {
     let totalTasks = $('li').length;
     let deletedTasks = $('.delete').length;
     let crossedOutTasks = $('.strike').length;
@@ -51,7 +51,9 @@ function newItem(){
       percentage = 100;
     }
     
+    let currentDateTime = new Date().toLocaleString();
     $('#percentComplete').text(Math.round(percentage));
+    $('#lastModified').text(currentDateTime);
   }
 }
 
@@ -61,6 +63,7 @@ function renameList(){
   if(listTitle){
     $('h1').text(listTitle);
   }
+  update();
 }
 
 $('h1').on('click', renameList);
