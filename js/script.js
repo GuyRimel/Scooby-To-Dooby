@@ -4,14 +4,14 @@ function newItem(){
     let li = $('<li></li>');
     let inputValue = $("#input").val();
     $(li).append(inputValue);
-    updatePercentComplete();
-
+    
     if (inputValue === '' || inputValue === ' ') {
-    alert('Write something!');
+      alert('Write something!');
     } else {
       let list = $('#list');
       list.append(li);
     }
+    updatePercentComplete();
 
   //2. Crossing out an item from the list of items:
     function crossOut() {
@@ -22,14 +22,15 @@ function newItem(){
     li.on("dblclick",crossOut);
 
   //3(i). Adding the delete button "X": 
-    let crossOutButton = $(`<button class='crossOutButton'></button>`);
-    crossOutButton.append(document.createTextNode("X"));
-    li.append(crossOutButton);
+    let xBtn = $(`<button class='xBtn'></button>`);
+    xBtn.append(document.createTextNode("X"));
+    li.append(xBtn);
 
-    crossOutButton.on("click", deleteListItem);
+    xBtn.on("click", deleteListItem);
   //3(ii). Adding CLASS DELETE (DISPLAY: NONE) from the css:
     function deleteListItem(){
       li.addClass("delete");
+      li.removeClass("strike");
       updatePercentComplete();
     }
   // 4. Reordering the items: 
@@ -40,8 +41,9 @@ function newItem(){
     let totalTasks = $('li').length;
     let deletedTasks = $('.delete').length;
     let crossedOutTasks = $('.strike').length;
-    let activeTasks = totalTasks - deletedTasks - crossedOutTasks;
-    let percentage = (1 - (activeTasks / (totalTasks - deletedTasks))) * 100;
+    let totalTasksShowing = totalTasks - deletedTasks;
+    let percentage = (crossedOutTasks / totalTasksShowing
+    ) * 100;
 
     if(!percentage || percentage < 0){
       percentage = 0;
@@ -53,12 +55,12 @@ function newItem(){
   }
 }
 
-  // rename list feature
-  function renameList(){
-    let listTitle = prompt('Enter new list title:').trim();
-    if(listTitle){
-      $('h1').text(listTitle);
-    }
+// rename list feature
+function renameList(){
+  let listTitle = prompt('Enter new list title:').trim();
+  if(listTitle){
+    $('h1').text(listTitle);
   }
+}
 
-  $('h1').on('click', renameList);
+$('h1').on('click', renameList);
