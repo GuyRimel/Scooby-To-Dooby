@@ -5,11 +5,12 @@ function newItem(){
     let inputValue = $("#input").val();
     $(li).append(inputValue);
     
-    if (inputValue === '' || inputValue === ' ') {
-      alert('Write something!');
+    if (!inputValue || inputValue === ' ') {
+      alert('Write something, Donkey!');
     } else {
-      let list = $('#list');
+      let list = $('#todo-list');
       list.append(li);
+      $("#input").val('');
     }
     update();
 
@@ -19,7 +20,7 @@ function newItem(){
       update();
     }
 
-    li.on("dblclick",crossOut);
+    li.on("dblclick", crossOut);
 
   //3(i). Adding the delete button "X": 
     let xBtn = $(`<button class='xBtn'></button>`);
@@ -61,8 +62,8 @@ function newItem(){
 function renameList(){
   let listTitle = prompt('Enter new list title:').trim();
   if(listTitle){
-    $('h1').text(listTitle);
+    $('h2').text(listTitle);
   }
 }
 
-$('h1').on('click', renameList);
+$('h2').on('click', renameList);

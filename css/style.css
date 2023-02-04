@@ -2,70 +2,93 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400);
 
 body {
-font: normal normal 13px/16px "Open Sans", sans-serif;
-background: #dfdfdf;
+	font: normal normal 13px/16px "Open Sans", sans-serif;
+	background: #eaeaea;
 }
 
-.container{
-padding: 20px;
-width: 300px;
-margin: 0 auto;
-margin-top: 40px;
-background: white;
-border-radius: 5px;}
+.container {
+	display: flex;
+	flex-direction: column;
+	max-width: 30rem;
+	padding: 1.25rem 1.25rem .75rem;
+	margin: 10% auto 0;
+	border-radius: 3px;
+	border: 1px solid hsl( 190, 20%, 77% );
+	box-shadow: 0 .25rem .5rem #0003;
+	background-color: hsl( 190, 20%, 82% );
+}
+
+.container > * {
+	padding: 0;
+	margin: 0 0 .75em;
+}
 
 form {
-display: inline-block;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-input{
-padding: 4px 15px 4px 5px;
-
+input {
+	width: 100%;
+	padding: .4em;
+	margin-right: .2rem;
 }
 
-#button{
-display: inline-block;
-background-color: cadetblue;
-color:#ffffff;
-border-radius: 5px;
-text-align:center;
-margin-top:2px;
-padding: 5px 15px;
+#plus-button{
+	background-color: hsl( 190, 100%, 40% );
+	color:#ffffff;
+	padding: .05rem .7rem;
+	margin: 0;
+	border: 1px solid hsl( 190, 100%, 35% );
+	border-radius: 3px;
+	border: none;
+	text-align: center;
+	font-size: 1.5rem;
+	text-shadow: 1px 1px black;
 }
 
-#button:hover{
-cursor: pointer;
-opacity: .8;}
+#plus-button:hover {
+	cursor: pointer;
+	opacity: .8;
+}
 
-ol {padding-left: 20px;}
+ol { padding-left: .25rem; }
 
 ol li {
 	padding: 5px;
 	color:#000;
-	border: 1px solid #ddd;
+	border: 1px solid #dbdbdb;
 	border-radius: 5px;
+	user-select: none;
 }
 
-ol li:nth-child(even){background: #dfdfdf;}
+ol li:nth-child(even) { background: #fff; }
+ol li:nth-child(odd) { background: #eaeaea; }
 
-.strike{text-decoration: line-through; text-decoration-color: red;}
-
-li:hover{
-  cursor: pointer;
- }
-
-.delete {
-	display: none;
+.strike { 
+	text-decoration: line-through;
+	text-decoration-color: #c00;
 }
+
+li:hover{ cursor: pointer; }
+
+.delete { display: none; }
 
 li > .xBtn {
 	background: none;
 	border: none;
 	float: right;
-	color: #025f70;
+	margin: auto 0;
+	color: #c12;
 	font-weight: 800;
 }
 
-h1 {
-	cursor: pointer;
+.container h1 {
+	color: hsl( 190, 100%, 35% );
+	margin-bottom: 1em;
 }
+
+h2 { cursor: pointer; }
+h2:hover { color: #777; }
+h2:active { color: hsl( 190, 100%, 40% ); }
